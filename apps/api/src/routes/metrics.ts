@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { pool, writeApi } from '../database';
-import { SystemMetrics } from '@server-monitor/types';
+import { SystemMetrics } from '../types';
 import { Point } from '@influxdata/influxdb-client';
 import { io } from '../index';
 

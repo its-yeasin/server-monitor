@@ -1,4 +1,4 @@
-import { Server } from '@server-monitor/types';
+import { Server } from '../types';
 import Link from 'next/link';
 
 interface ServerCardProps {

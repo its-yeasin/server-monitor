@@ -3,21 +3,18 @@
   "version": "1.0.0",
   "description": "Professional server monitoring tool with agents",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "start": "turbo run start",
-    "lint": "turbo run lint",
-    "clean": "turbo run clean && rm -rf node_modules",
+    "dev:api": "cd apps/api && yarn dev",
+    "dev:web": "cd apps/web && yarn dev",
+    "dev:agent": "cd apps/agent && yarn dev",
+    "build:types": "cd packages/types && yarn build",
+    "build:api": "cd apps/api && yarn build",
+    "build:web": "cd apps/web && yarn build",
+    "build:agent": "cd apps/agent && yarn build",
+    "build": "yarn build:types && yarn build:api && yarn build:web && yarn build:agent",
+    "install:all": "cd packages/types && yarn install && cd ../../apps/api && yarn install && cd ../web && yarn install && cd ../agent && yarn install",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down"
-  },
-  "devDependencies": {
-    "turbo": "^2.3.3"
   },
   "packageManager": "yarn@1.22.22",
   "engines": {

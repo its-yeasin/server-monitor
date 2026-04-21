@@ -2,7 +2,7 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 import * as si from 'systeminformation';
 import * as os from 'os';
-import { SystemMetrics } from '@server-monitor/types';
+import { SystemMetrics } from './types';
 
 dotenv.config();
 
@@ -37,8 +37,6 @@ async function collectMetrics(): Promise<SystemMetrics> {
     const netStats = networkStats[0] || {
       rx_bytes: 0,
       tx_bytes: 0,
-      rx_packets: 0,
-      tx_packets: 0,
     };
 
     const metrics: SystemMetrics = {
@@ -62,10 +60,10 @@ async function collectMetrics(): Promise<SystemMetrics> {
         usagePercent: parseFloat(((diskUsed / diskTotal) * 100).toFixed(2)),
       },
       network: {
-        bytesIn: netStats.rx_bytes,
-        bytesOut: netStats.tx_bytes,
-        packetsIn: netStats.rx_packets || 0,
-        packetsOut: netStats.tx_packets || 0,
+        bytesIn: netStats.rx_bytes || 0,
+        bytesOut: netStats.tx_bytes || 0,
+        packetsIn: 0, // systeminformation doesn't provide packet counts in all versions
+        packetsOut: 0,
       },
     };
 

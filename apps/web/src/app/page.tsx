@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Server } from '@server-monitor/types';
+import { Server } from '@/types';
 import ServerCard from '@/components/ServerCard';
 import Header from '@/components/Header';
 import { getServers } from '@/lib/api';
