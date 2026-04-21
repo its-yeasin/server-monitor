@@ -36,9 +36,9 @@ Professional server monitoring tool with lightweight agents for real-time metric
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 22+
 - Docker & Docker Compose
-- npm or yarn
+- Yarn (recommended)
 
 ### Installation
 
@@ -50,17 +50,17 @@ cd server-monitor
 
 2. Install dependencies:
 ```bash
-npm install
+yarn install
 ```
 
 3. Start databases:
 ```bash
-npm run docker:up
+yarn docker:up
 ```
 
 4. Start development servers:
 ```bash
-npm run dev
+yarn dev
 ```
 
 5. Access the dashboard:
@@ -129,19 +129,19 @@ COLLECTION_INTERVAL=10000
 
 ```bash
 # Install dependencies
-npm install
+yarn install
 
 # Start all services in development mode
-npm run dev
+yarn dev
 
 # Build for production
-npm run build
+yarn build
 
 # Lint code
-npm run lint
+yarn lint
 
 # Clean build artifacts
-npm run clean
+yarn clean
 ```
 
 ## Technology Stack

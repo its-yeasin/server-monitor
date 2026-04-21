@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Node.js 18+ and npm
+- Node.js 22+ and Yarn
 - Docker and Docker Compose
 - Git
 
@@ -13,13 +13,13 @@
 ```bash
 git clone <your-repo-url>
 cd server-monitor
-npm install
+yarn install
 ```
 
 ### 2. Start Databases
 
 ```bash
-npm run docker:up
+yarn docker:up
 ```
 
 This starts:
@@ -44,7 +44,7 @@ cp apps/web/.env.local.example apps/web/.env.local
 ### 4. Start Development
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 This starts:
@@ -71,22 +71,22 @@ cd ~/server-monitor-agent
 # Or clone and navigate to apps/agent
 
 # Install dependencies
-npm install
+yarn install
 
 # Configure
 cp .env.example .env
 # Edit .env with your SERVER_ID and AGENT_TOKEN from step 5
 
 # Start agent
-npm run build
-npm start
+yarn build
+yarn start
 ```
 
 For production, use PM2 or systemd to keep the agent running:
 
 ```bash
 # With PM2
-npm install -g pm2
+yarn global add pm2
 pm2 start dist/index.js --name server-monitor-agent
 pm2 save
 pm2 startup
@@ -98,8 +98,8 @@ pm2 startup
 
 ```bash
 cd apps/api
-npm run build
-npm start
+yarn build
+yarn start
 ```
 
 Use a process manager like PM2:
@@ -111,8 +111,8 @@ pm2 start dist/index.js --name server-monitor-api
 
 ```bash
 cd apps/web
-npm run build
-npm start
+yarn build
+yarn start
 ```
 
 Or deploy to Vercel/Netlify for static hosting.
@@ -163,8 +163,8 @@ docker logs server-monitor-influxdb
 docker logs server-monitor-redis
 
 # Restart databases
-npm run docker:down
-npm run docker:up
+yarn docker:down
+yarn docker:up
 ```
 
 ### Agent Not Connecting
@@ -184,7 +184,7 @@ PORT=4001
 
 # Change web port
 cd apps/web
-npm run dev -- -p 3001
+yarn dev -p 3001
 
 # Update NEXT_PUBLIC_API_URL in apps/web/.env.local
 ```

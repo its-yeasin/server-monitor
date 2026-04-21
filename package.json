@@ -13,14 +13,15 @@
     "start": "turbo run start",
     "lint": "turbo run lint",
     "clean": "turbo run clean && rm -rf node_modules",
-    "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down"
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
   },
   "devDependencies": {
-    "turbo": "^1.10.16"
+    "turbo": "^2.3.3"
   },
-  "packageManager": "npm@10.2.3",
+  "packageManager": "yarn@1.22.22",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.0.0",
+    "yarn": ">=1.22.0"
   }
 }
